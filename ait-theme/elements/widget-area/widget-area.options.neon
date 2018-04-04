@@ -1,8 +1,0 @@
-@include: common.neon
-
-area:
-	label: Widget area
-	type: sidebar
-	default:
-		sidebar: none
-	help: "Select widget area to display"
