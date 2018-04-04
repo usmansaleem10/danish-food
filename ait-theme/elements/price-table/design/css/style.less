@@ -1,0 +1,20 @@
+
+@import "../../../@common/common.less";
+
+#@{el}{
+
+	.standardColor('dark') when (iscolor(@standard))	{ background: @standard; }
+	.standardColor('light') when (iscolor(@standard))	{ background: lighten(@standard, 5%); }
+	.featuredColor('dark') when (iscolor(@featured))	{ background: @featured !important; }
+	.featuredColor('light') when (iscolor(@featured))	{ background: lighten(@featured, 5%) !important; }
+
+	.ptable-item .table-header								{ .standardColor('dark'); }
+	.ptable-item .table-header h3:before					{ .standardColor('light'); }
+	.ptable-item.table-featured .table-header				{ .featuredColor('dark'); }
+	.ptable-item.table-featured .table-header h3:before		{ .featuredColor('light'); }
+
+}
+
+.@{el} {
+	clear:both;
+}

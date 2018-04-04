@@ -1,0 +1,91 @@
+@include: common.neon
+
+
+slideDuration:
+	label: Slide Duration
+	help: "The time while one slide is displayed"
+	type: range
+	basic: true
+	min: 1000
+	max: 60000
+	step: 1000
+	unit: ms
+	default: 9000
+
+
+efectDuration:
+	label: Animation Duration
+	help: "Duration of animation between slides"
+	type: range
+	basic: true
+	min: 300
+	max: 2000
+	step: 100
+	unit: ms
+	default: 300
+
+inputs:
+	label: Background Slides
+	type: clone
+	max: 30
+	basic: true
+	help: "Slider displays navigation arrows, title and description only if page is blank (without any other content and elements)."
+	items:
+		label:
+			label: Label
+			type: text
+			help: "Text for own identification of slide"
+			default: ''
+
+		description:
+			label: Description
+			type: text
+			help: "Short description of slide"
+
+		bgImage:
+			label: Background Image
+			help: "Background image of slide"
+			type: image
+
+		bgColor:
+			label: Background Color
+			help: "Color of slide displayed with transparent image"
+			type: color
+			default: ''
+			
+		descBackground:
+			label: Label Background
+			type: color
+			default: '#000000'
+			opacity: 50%
+			help: "Background of description boxes"
+
+		descTitleColor:
+			label: Title
+			type: color
+			default: ''
+			help: "Color of title in description boxes"
+
+		descTextColor:
+			label: Text
+			type: color
+			default: ''
+			help: "Color of text in description boxes"	
+		
+
+		bgPosition:
+			label: Background Position
+			help: "Position of background image in slide"
+			type: select
+			selected: cc
+			default:
+				tl: "top left"
+				tc: "top center"
+				tr: "top right"
+				cl: "center left"
+				cc: "center center"
+				cr: "center right"
+				bl: "bottom left"
+				bc: "bottom center"
+				br: "bottom right"
+	default: []

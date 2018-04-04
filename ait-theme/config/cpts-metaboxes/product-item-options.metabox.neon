@@ -1,0 +1,23 @@
+description:
+	label: Description
+	type: text
+	default: ""
+	help: ""
+
+price:
+	label: Price
+	type: text
+	default: ""
+	help: ""
+
+featured:
+	label: Featured Item
+	type: on-off
+	default: off
+	help: ""
+
+iconEffect:
+	label: Icon Effect
+	type: on-off
+	default: on
+	help: "Display border for product image"

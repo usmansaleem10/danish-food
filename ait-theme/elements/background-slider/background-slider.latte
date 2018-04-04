@@ -1,0 +1,61 @@
+<div id="{$htmlId}" class="{$htmlClass}">
+
+	{?
+		$inputs = $element->option(inputs);
+		if($inputs == '') $inputs = array();
+
+		$bgPositions = array();
+		$bgPositions['tl'] = "top left";
+		$bgPositions['tc'] = "top center";
+		$bgPositions['tr'] = "top right";
+		$bgPositions['cl'] = "center left";
+		$bgPositions['cc'] = "center center";
+		$bgPositions['cr'] = "center right";
+		$bgPositions['bl'] = "bottom left";
+		$bgPositions['bc'] = "bottom center";
+		$bgPositions['br'] = "bottom right";
+	}
+
+
+	<div class="slider-wrap">
+
+		<div class="slides">
+
+			{foreach $inputs as $input}
+
+				{var $labelBgColor    = $input['descBackground'] == '' ? FALSE : 'background-color: ' . $input['descBackground'] . ';'}
+				{var $titColor    = $input['descTitleColor'] == '' ? FALSE : 'color: ' . $input['descTitleColor'] . ';'}
+				{var $textColor    = $input['descTextColor'] == '' ? FALSE : 'color: ' . $input['descTextColor'] . ';'}
+
+				{var $slideBgColor    = $input['bgColor'] == '' ? FALSE : 'background-color: ' . $input['bgColor'] . ';'}
+				{var $slideBgImage    = "background-image: url('{$input['bgImage']}');"}
+				{var $slideBgPosition = 'background-position: ' . $bgPositions[$input['bgPosition']] . ';'}
+				{var $slideLabel      = $input['label'] == '' ? '' : '<span class="slide-title" style="' . ($titColor ? $titColor : '') . '">' . $input['label'] . '</span>'}
+				{var $slideDescription= $input['description'] == '' ? '' : '<span class="slide-description" style="' . ($textColor ? $textColor : '') . '">' . $input['description'] . '</span>'}
+
+
+
+
+				<div class="slide slide-{$iterator->counter}" style="{if $slideBgColor}{$slideBgColor|noescape}{/if} {$slideBgImage|noescape} {$slideBgPosition|noescape}">
+					{if $slideLabel != '' or $slideDescription != ''}
+						<div class="slide-info" style="{if $labelBgColor}{$labelBgColor|noescape}{/if}">
+							{!$slideLabel}
+							{!$slideDescription}
+						</div>
+					{/if}
+
+				</div>
+
+			{/foreach}
+
+		</div>
+		<div class="slider-navigation">
+			<a href="#" class="navigation-prev">left</a>
+			<a href="#" class="navigation-next">right</a>
+		</div>
+	</div>
+
+
+</div>
+
+{includePart "ait-theme/elements/background-slider/javascript"}
